@@ -4,8 +4,11 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class JoblyApi {
   static async request(endpoint, paramsOrData = {}, verb = "get") {
-    paramsOrData._token = JSON.parse(localStorage.getItem("token"));
-
+    try {
+      paramsOrData._token = JSON.parse(localStorage.getItem("token"));
+    } catch(e) {
+      paramsOrData._token = null;
+    }
     console.debug("API Call:", endpoint, paramsOrData, verb);
 
     try {
