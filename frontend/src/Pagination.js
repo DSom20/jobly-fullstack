@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pagination.css'
 
 function Pagination({ setStartSliceIndex, currentStartIndex, arrayLength, numItemsPerPage }) {
 
@@ -23,7 +24,7 @@ function Pagination({ setStartSliceIndex, currentStartIndex, arrayLength, numIte
   );
 
   return (
-    <div>
+    <div className="Pagination">
       <button disabled={backDisabled} onClick={() => setCurrentPage(1)}>First Page</button>
       <button disabled={backDisabled} onClick={() => setCurrentPage(currentPage - 1)}>Go Back</button>
       {pageButtons}

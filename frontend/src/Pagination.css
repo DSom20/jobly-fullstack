@@ -1,0 +1,19 @@
+.Pagination {
+  margin-bottom: 50px;
+}
+
+.Pagination > button {
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: rgb(1, 114, 206);
+  color: white;
+  margin: 0 2px;
+  font-size: 12px;
+  flex-grow: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.Pagination button:disabled {
+  background-color: rgba(1, 114, 206, .4);
+}
