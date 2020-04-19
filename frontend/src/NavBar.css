@@ -26,9 +26,9 @@
   color: black;
 }
 
-.active {
+.NavBar .active {
   color: white;
-  background-color: rgb(27, 125, 206);
+  /* background-color: rgb(27, 125, 206); */
   background-color: rgb(1, 114, 206);
 }
 
