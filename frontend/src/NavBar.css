@@ -14,7 +14,6 @@
 }
 
 .NavBar a {
-  /* height: 100%; */
   display: flex;
   align-items: center;
   padding: 0 10px;
@@ -28,7 +27,6 @@
 
 .NavBar .active {
   color: white;
-  /* background-color: rgb(27, 125, 206); */
   background-color: rgb(1, 114, 206);
 }
 
