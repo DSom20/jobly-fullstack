@@ -59,6 +59,6 @@
 }
 
 .Profile-form button:disabled {
-  background-color: rgb(46, 148, 231);
+  background-color: rgb(151, 188, 213);
   cursor: default;
 }
