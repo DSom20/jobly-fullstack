@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { v4 as uuid } from 'uuid';
 import Alert from './Alert';
 import JoblyApi from './helpers/JoblyApi';
 import UserContext from "./UserContext";
@@ -26,7 +27,7 @@ function Profile() {
 
     const resp = await JoblyApi.patchUser(userData)
     if (!resp.username) {
-      setAlerts(resp.map((message, idx) => <Alert key={idx} text={message} />));
+      setAlerts(resp.map((message, idx) => <Alert key={uuid()} text={message} />));
     } else {
       setUserData(oldData => ({
         ...resp,

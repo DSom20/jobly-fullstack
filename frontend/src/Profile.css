@@ -1,15 +1,31 @@
 .Profile {
-  text-align: left;
+  background-color: rgba(255, 255, 255, .9);
+  padding: 20px;
+  margin: 0px 0;
+  border-radius: 5px;
 }
 
 .Profile h1 {
-  font-weight: 500;
-  margin-bottom: 10px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.Profile h1 {
+  margin-bottom: 0px;
 }
 
 .Profile-form {
-  background-color: white;
+  text-align: left;
+  /* background-color: white; */
+  /* background-color: rgba(255, 255, 255, .9); */
   padding: 20px;
+  border-radius: 5px;
+}
+
+.Profile-form label {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .Profile-form div {
@@ -18,7 +34,8 @@
 
 .Profile-username {
   margin: 15px 0;
-  color: rgb(100,100,100);
+  padding-left: 12px;
+  font-size: 18px;
 }
 
 .Profile-form input {
@@ -31,9 +48,8 @@
   padding-right: 10px;
   outline: none;
   border: 1px solid rgb(200,200,200);
-  color: rgb(100,100,100);
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .Profile-form input:focus {
@@ -59,6 +75,6 @@
 }
 
 .Profile-form button:disabled {
-  background-color: rgb(151, 188, 213);
+  background-color: rgb(111, 176, 220);
   cursor: default;
 }

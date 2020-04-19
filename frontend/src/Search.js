@@ -30,13 +30,13 @@ function Search({ filter }) {
   return (
     <form className="Search">
       <div className="Search-container">
-      <input 
-        onChange={handleChange}
-        type="text"
-        name="search"
-        placeholder="Enter search term..."
-        value={formData} />
-      <button onClick={handleSubmit}>Submit</button>
+        <input 
+          onChange={handleChange}
+          type="text"
+          name="search"
+          placeholder="Enter search term..."
+          value={formData} />
+        <button onClick={handleSubmit}>Submit</button>
       </div>
     </form>
   )

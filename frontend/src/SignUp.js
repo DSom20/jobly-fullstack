@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { v4 as uuid } from 'uuid';
 import Alert from './Alert';
 import JoblyApi from "./helpers/JoblyApi";
 import { Link, useHistory } from 'react-router-dom';
@@ -33,7 +34,7 @@ function SignUp() {
 
     const resp = await JoblyApi.signUp(formData)
     if (!resp.token) {
-      setAlerts(resp.map(message => <Alert text={message} />));
+      setAlerts(resp.map(message => <Alert key={uuid()} text={message} />));
     } else {
       logIn(resp);
       history.push('/jobs')

@@ -8,13 +8,21 @@ function Home() {
 
   return (
     <div className="Home">
-      <h1>Jobly</h1>
-      <h3>Best Jobs Ever. Get you job here!</h3>
-      {
-        currentUser
-          ? <h2>Welcome Back, {currentUser.username}!</h2>
-          : <Link to="/login" >Log in</Link>
-      }
+      <div className="Home-text-container">
+        <h1>Jobly</h1>
+        <h3>Everone's favorite mock job board!</h3>
+        <h3>Search for companies and jobs</h3>
+        <h3>...and smash that APPLY button!</h3>
+        {
+          currentUser
+            ? <h2>Welcome, {currentUser.username}!</h2>
+            : (<div className="Home-link-container">
+                <Link to="/login" >Log In</Link>
+                <div className="Home-link-separator"/>
+                <Link to="/signup">Sign Up</Link>
+              </div>)
+        }
+      </div>
 
     </div>
   )

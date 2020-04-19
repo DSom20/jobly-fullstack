@@ -20,7 +20,8 @@ function NavBar() {
   const loggedOutJSX = (
     <nav className="NavBar">
       <NavLink exact className="NavBar-home" to='/'>Jobly</NavLink>
-      <NavLink to='/login'>Login</NavLink>
+      <NavLink to='/login'>Log In</NavLink>
+      <NavLink to='/signup'>Sign Up</NavLink>
     </nav>
   )
   

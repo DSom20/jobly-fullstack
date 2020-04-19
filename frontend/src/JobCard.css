@@ -1,45 +1,50 @@
 .JobCard {
   box-sizing: border-box;
   background-color: white;
-  margin: 10px 0px;
+  margin: 10px auto;
   padding: 20px;
-  box-shadow: 0 0 3px 1px rgba(0,0,0,.1);
+  box-shadow: 0px 0px 5px 3px rgba(28, 28, 28, 0.5);
   text-align: left;
   min-height: 120px;
   color: rgb(100,100,100);
+  border-radius: 5px;
+  font-weight: 500;
 }
 
 .JobCard-title {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
 .JobCard-description {
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.JobCard-apply {
+.JobCard-btn-container {
   text-align: right;
 }
 
-.JobCard-apply button {
+.JobCard-btn {
   height: 35px;
   width: 80px;
   border: none;
-  background-color: rgb(245, 62, 62);
   color: white;
   border-radius: 5px;
   font-weight: 500;
   font-size: 14px;
-  cursor: pointer;
   letter-spacing: 1px;
   outline: none;
 }
 
-.JobCard-apply button:hover {
-  background-color: rgb(211, 42, 42);
+.JobCard-btn.apply {
+  background-color: rgb(245, 62, 62);
 }
 
-.JobCard-apply.JobCard-applied button {
+.JobCard-btn.apply:hover {
+  background-color: rgb(211, 42, 42);
+  cursor: pointer;
+}
+
+.JobCard-btn.applied {
   background-color: rgb(255, 112, 112);
 }

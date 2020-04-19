@@ -7,6 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  /* background-color: rgb(245,245,245); */
+  background-image: url(./images/sf-cityscape-by-eric-thurber-from-pexels_50.jpg);
+  /* background-image: url(./images/person-holding-black-pen-and-notebook-3787327.jpg); */
+
+  /* background-size: contain;
+  background-repeat: no-repeat; */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

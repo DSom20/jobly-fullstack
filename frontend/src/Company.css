@@ -1,3 +1,17 @@
 .Company {
-  text-align: left;
+  background-color: rgba(255, 255, 255, .9);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.Company-title h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.Company-title p {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
 }

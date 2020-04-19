@@ -24,9 +24,9 @@ function Company() {
 
   if (jobsList && company) {
     companyJSX = (
-      <div>
+      <div className="Company-title">
         <h1>{company.name}</h1>
-        <div>{company.description}</div>
+        <p>{company.description}</p>
       </div>
     )
     jobsJSX = (

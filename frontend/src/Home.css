@@ -1,25 +1,46 @@
 .Home {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, .9);
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .Home h1 {
   font-weight: 600;
   margin: 0;
+  font-size: 44px;
+  text-decoration: underline;
 }
 
-.Home h3 {
-  font-weight: 500;
-  color: rgb(100,100,100);
+.Home h2 {
+  padding-top: 10px;
 }
 
+
+.Home-link-container {
+  display: border-box;
+  height: auto;
+}
+
+.Home-link-separator {
+  display: inline;
+  padding: 7px 0;
+  border-right: 2px black solid;
+  font-size: 20px;
+}
 .Home a {
   background-color: rgb(8, 126, 223);
   color: white;
-  padding: 5px 15px;
+  font-size: 20px;
+  padding: 10px 15px;
   border-radius: 3px;
   text-decoration: none;
+  display: inline-block;
+  margin: 20px;
+
 }
 
 .Home a:hover {

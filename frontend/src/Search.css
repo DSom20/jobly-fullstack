@@ -1,12 +1,15 @@
+/* .Search-container {
+  box-shadow: 0 0 3px 30px black;
+} */
+
 .Search-container {
   display: flex;
-  margin-top: 20px;
-  background-color: white;
-  width: 600px;
+  justify-content: space-between;
+  margin: 20px;
   height: 40px;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 3px 1px rgba(0,0,0,.1);
+  box-shadow: 0 0 3px 5px rgba(0,0,0,.4);
 }
 
 .Search button {
@@ -18,6 +21,7 @@
   color: white;
   height: 40px;
   padding: 0 10px;
+  margin: 0;
   font-size: 18px;
   line-height: 40px;
   flex-grow: 0;
@@ -34,4 +38,5 @@
   line-height: 40px;
   flex-grow: 1;
   color: rgb(100,100,100);
+  margin: 0;
 }

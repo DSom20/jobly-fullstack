@@ -13,7 +13,6 @@ class User {
 
   static async authenticate(data) {
     // try to find the user first
-    console.log("DATAAAAAAA", data);
     const result = await db.query(
         `SELECT username, 
                 password, 

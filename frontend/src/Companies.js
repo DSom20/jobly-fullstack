@@ -3,6 +3,7 @@ import Search from './Search';
 import CompanyCard from './CompanyCard';
 import JoblyApi from './helpers/JoblyApi';
 import Pagination from './Pagination';
+import './Companies.css';
 
 const NUM_ITEMS_PER_PAGE = 20;
 
@@ -24,8 +25,10 @@ function Companies() {
     setStartSliceIndex(0);
   }
 
-  let companiesOrLoadingMessage = <div>Sorry no results found</div>
-  if (companyList) {
+  let companiesOrLoadingMessage = <div>Fetching companies from database...</div>
+  if (companyList && companyList.length === 0) {
+    companiesOrLoadingMessage = "No results match those search criteria";
+  } else if (companyList && companyList.length > 0) {
     const companyListJSX = companyList
       .slice(startSliceIndex, startSliceIndex + NUM_ITEMS_PER_PAGE)
       .map(comp => <CompanyCard key={comp.handle} company={comp} />);
@@ -43,7 +46,8 @@ function Companies() {
   }
 
   return (
-    <div>
+    <div className="Companies">
+      <h1>Company Board</h1>
       <Search filter={filterCompanies}/>
       {companiesOrLoadingMessage}
     </div>

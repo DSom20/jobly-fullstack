@@ -39,7 +39,7 @@ function Login() {
 
   return (
     <div className="Login">
-      <h1>Login</h1>
+      <h1>Log In</h1>
       <form className="Login-form">
         <div>
           <label htmlFor="username">Username</label>

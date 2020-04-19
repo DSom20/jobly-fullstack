@@ -1,0 +1,11 @@
+.Companies {
+  background-color: rgba(255, 255, 255, .9);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.Companies h1 {
+  margin: 0;
+  padding: 0;
+}
