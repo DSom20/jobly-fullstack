@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import JoblyApi from "./helpers/JoblyApi";
 import Search from './Search';
 import JobCard from './JobCard';
@@ -10,7 +10,7 @@ const NUM_ITEMS_PER_PAGE = 20;
 function Jobs() {
   const [jobsList, setJobsList] = useState(null);
   const [startSliceIndex, setStartSliceIndex] = useState(0);
-  
+  console.log("inside jobs")
   useEffect(() => {
     let getJobsList = async () => {
       const jobsResult = await JoblyApi.getJobs({});
@@ -19,11 +19,12 @@ function Jobs() {
     getJobsList();
   }, []);
 
-  const filterJobs = async (searchTerm) => {
+  const filterJobs = useCallback(async (searchTerm) => {
+    console.log("Inside filter", {searchTerm})
     const jobsResult = await JoblyApi.getJobs({search: searchTerm});
     setJobsList(jobsResult);
     setStartSliceIndex(0);
-  };
+  }, [setJobsList, setStartSliceIndex]);
   
   let jobsOrLoadingMessage = <div>Fetching jobs from database...</div>;
   if (jobsList && jobsList.length === 0) {
@@ -44,7 +45,6 @@ function Jobs() {
       </div>
     )
   }
-
   return (
     <div className="Jobs">
       <h1>Job Board</h1>
