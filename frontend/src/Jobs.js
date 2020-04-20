@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { unstable_batchedUpdates } from 'react-dom';
 import JoblyApi from "./helpers/JoblyApi";
 import Search from './Search';
 import JobCard from './JobCard';
@@ -10,7 +11,6 @@ const NUM_ITEMS_PER_PAGE = 20;
 function Jobs() {
   const [jobsList, setJobsList] = useState(null);
   const [startSliceIndex, setStartSliceIndex] = useState(0);
-  console.log("inside jobs")
   useEffect(() => {
     let getJobsList = async () => {
       const jobsResult = await JoblyApi.getJobs({});
@@ -20,10 +20,17 @@ function Jobs() {
   }, []);
 
   const filterJobs = useCallback(async (searchTerm) => {
-    console.log("Inside filter", {searchTerm})
     const jobsResult = await JoblyApi.getJobs({search: searchTerm});
-    setJobsList(jobsResult);
-    setStartSliceIndex(0);
+    // calling two stateSetters inside async doesn't batch them by default, so
+    // technically would render twice. One option is to use ReactDOM's unstable_batchedUpdates(),
+    // which is getting called under the hood in useEffects/for syncronous functions, and supposedly
+    // will be used by default for async fxs in React v.17. 
+    // Another option is to just have single state as an object: {jobsList: ..., startSliceIndex: ...}
+    // That latter option is probably better...see Company component
+    unstable_batchedUpdates(() => {
+      setJobsList(jobsResult);
+      setStartSliceIndex(0);
+    });
   }, [setJobsList, setStartSliceIndex]);
   
   let jobsOrLoadingMessage = <div>Fetching jobs from database...</div>;

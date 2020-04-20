@@ -12,7 +12,6 @@ import PrivateRoute from './PrivateRoute';
 import './Routes.css';
 
 function Routes() {
-  console.log("inside routes");
   return (
     <div className="Container">
       <Switch>

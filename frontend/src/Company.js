@@ -6,15 +6,15 @@ import './Company.css';
 
 function Company() {
   const { handle } = useParams();
-  const [jobsList, setJobsList] = useState(null);
-  const [company, setCompany] = useState(null);
+  const [state, setState] = useState({jobsList: null, company: null});
 
   useEffect(() => {
     const updateState = async () => {
-      const companyResult = await JoblyApi.getCompany(handle);
-      const jobsResult = await JoblyApi.getJobs({company_handle: handle});
-      setCompany(companyResult);
-      setJobsList(jobsResult);
+      const [companyResult, jobsResult] = await Promise.all([
+        JoblyApi.getCompany(handle),
+        JoblyApi.getJobs({company_handle: handle})
+      ]);
+      setState({jobsList: jobsResult, company: companyResult});
     }
     updateState();
   }, [handle])
@@ -22,16 +22,16 @@ function Company() {
   let companyJSX = <div>Company info loading</div>;
   let jobsJSX = <div>Job list loading</div>;
 
-  if (jobsList && company) {
+  if (state.jobsList && state.company) {
     companyJSX = (
       <div className="Company-title">
-        <h1>{company.name}</h1>
-        <p>{company.description}</p>
+        <h1>{state.company.name}</h1>
+        <p>{state.company.description}</p>
       </div>
     )
     jobsJSX = (
       <div>
-        {jobsList.map(job => <JobCard key={job.id} job={job} />)}
+        {state.jobsList.map(job => <JobCard key={job.id} job={job} />)}
       </div>
     )
   }

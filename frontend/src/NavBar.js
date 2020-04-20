@@ -10,7 +10,7 @@ function NavBar() {
     <nav className="NavBar">
       <NavLink exact className="NavBar-home" to='/'>Jobly</NavLink>
       <NavLink to='/jobs'>Jobs</NavLink>
-      <NavLink to='/companies'>Companies</NavLink>
+      <NavLink exact to='/companies'>Companies</NavLink>
       <NavLink to='/profile'>Profile</NavLink>
       <NavLink activeClassName="ignoreActive" exact to='/' onClick={logOut}>Log out</NavLink>
     </nav>

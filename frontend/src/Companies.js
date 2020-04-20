@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { unstable_batchedUpdates } from 'react-dom';
 import Search from './Search';
 import CompanyCard from './CompanyCard';
 import JoblyApi from './helpers/JoblyApi';
@@ -19,11 +20,13 @@ function Companies() {
     getCompanyList();
   }, []);
 
-  const filterCompanies = async (searchTerm) => {
+  const filterCompanies = useCallback(async (searchTerm) => {
     const companyResult = await JoblyApi.getCompanies({search: searchTerm});
-    setCompanyList(companyResult);
-    setStartSliceIndex(0);
-  }
+    unstable_batchedUpdates(() => {
+      setCompanyList(companyResult);
+      setStartSliceIndex(0);
+    });
+  }, [setCompanyList, setStartSliceIndex]);
 
   let companiesOrLoadingMessage = <div>Fetching companies from database...</div>
   if (companyList && companyList.length === 0) {

@@ -2,7 +2,6 @@ import React from 'react';
 import './Pagination.css'
 
 function Pagination({ setStartSliceIndex, currentStartIndex, arrayLength, numItemsPerPage }) {
-
   const backDisabled = currentStartIndex <= 0;
   const forwardDisabled = currentStartIndex + numItemsPerPage >= arrayLength;
 
