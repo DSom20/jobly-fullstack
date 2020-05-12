@@ -11,6 +11,7 @@ const NUM_ITEMS_PER_PAGE = 20;
 function Jobs() {
   const [jobsList, setJobsList] = useState(null);
   const [startSliceIndex, setStartSliceIndex] = useState(0);
+
   useEffect(() => {
     let getJobsList = async () => {
       const jobsResult = await JoblyApi.getJobs({});
@@ -33,7 +34,10 @@ function Jobs() {
     });
   }, [setJobsList, setStartSliceIndex]);
   
+  // default main element when useEffect is first fetching data
   let jobsOrLoadingMessage = <div>Fetching jobs from database...</div>;
+
+  // jobsList is array after API call, but might be empty. and empty array is truthy
   if (jobsList && jobsList.length === 0) {
     jobsOrLoadingMessage = "No results match those search criteria";
   } else if (jobsList && jobsList.length > 0) {

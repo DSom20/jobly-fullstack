@@ -4,17 +4,18 @@ import './Search.css';
 function Search({ filter }) {
   const [formData, setFormData] = useState("");
 
-  const handleChange = useCallback((evt) => {
-    const value = evt.target.value
+  // Don't really need useCallback, since not passing down to a child component
+  const handleChange = (evt) => {
+    const value = evt.target.value;
     setFormData(value);
-  }, [setFormData]);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     // Don't want useEffect's debounce to redundantly call filter, so clear it out
     clearTimeout(timerId.current);
     filter(formData);
-  }
+  };
 
   const timerId = useRef(null);
   // Don't want useEffect to run on component mounting, just updating
@@ -23,7 +24,7 @@ function Search({ filter }) {
   useEffect(() => {
     if(didMount.current) {
       timerId.current = setTimeout(() => filter(formData), 1000)
-      // Clean up fx gets run before executing next effect
+      // Clean up function gets run before executing next effect
       return () => clearTimeout(timerId.current);
     } else {
       didMount.current = true;

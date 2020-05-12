@@ -9,7 +9,7 @@ class JoblyApi {
     } catch(e) {
       paramsOrData._token = null;
     }
-    console.debug("API Call:", endpoint, paramsOrData, verb);
+    // console.debug("API Call:", endpoint, paramsOrData, verb);
 
     try {
       return (await axios({
